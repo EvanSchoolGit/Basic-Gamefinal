@@ -12,7 +12,7 @@ Fill me out!!!!!
 from charactar import Protag, Enemyone 
 
 x_loc=0
-y_loc=0
+y_loc=4
 
 guy = Protag(name = "You", health=10)
 enemyone = Enemyone(name="Unpaid Specialist", health=10)
