@@ -142,7 +142,7 @@ def printui():
       with open(uifile) as file:
         print(file.read())
     finally:
-        input("Choice: ")
+        direction = input("Choice: ")
 
 def movement(direction): 
   global x_loc, y_loc
@@ -161,6 +161,7 @@ def movement(direction):
 try:
   intro()
   printui()
+  movement(direction)
 finally:
   pass
   
