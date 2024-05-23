@@ -132,20 +132,8 @@ def intro():
   input("a real go-getter?: ")
 
 
-def printui():
-  while True:
-    try:
-      with open(mapfile) as file:
-        print(file.read())
-      print("COORDINATES: ",f"{x_loc}, {y_loc}")
-      print("")
-      with open(uifile) as file:
-        print(file.read())
-    finally:
-        direction = input("Choice: ")
-
 def movement(direction): 
-  global x_loc, y_loc
+  global x_loc, y_loc, direction
   if direction == "a" and x_loc > 0:
     x_loc-= 1
   elif direction == "d" and x_loc < 3:
@@ -157,11 +145,22 @@ def movement(direction):
   elif direction == ("X"):
     print("Now quiting...")
     quit()
+
+  
+while True:
+  try:
+    with open(mapfile) as file:
+      print(file.read())
+    print("COORDINATES: ",f"{x_loc}, {y_loc}")
+    print("")
+    with open(uifile) as file:
+      print(file.read())
+  finally:
+      choice = input("Choice: ")
     
 try:
   intro()
-  printui()
-  movement(direction)
+  movement(choice)
 finally:
   pass
   
