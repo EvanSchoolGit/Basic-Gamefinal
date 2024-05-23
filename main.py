@@ -133,7 +133,7 @@ def intro():
 
 
 def movement(direction): 
-  global x_loc, y_loc, direction
+  global x_loc, y_loc
   if direction == "a" and x_loc > 0:
     x_loc-= 1
   elif direction == "d" and x_loc < 3:
@@ -146,7 +146,7 @@ def movement(direction):
     print("Now quiting...")
     quit()
 
-  
+intro()
 while True:
   try:
     with open(mapfile) as file:
@@ -157,18 +157,17 @@ while True:
       print(file.read())
   finally:
       choice = input("Choice: ")
+      pass
+  try:
+    movement(choice)
+  finally:
+    pass
     
-try:
-  intro()
-  movement(choice)
-finally:
-  pass
-  
-while True:
-  guy.attack(enemyone)
-  enemyone.attack(guy)
-  
-  print(f"Health of {guy.name}: {guy.health}")
-  print(f"Health of {enemyone.name}: {enemyone.health}")
-  input("CLICK: ")
-  pass
+  #while True:
+    #guy.attack(enemyone)
+    #enemyone.attack(guy)
+    
+    #print(f"Health of {guy.name}: {guy.health}")
+    #print(f"Health of {enemyone.name}: {enemyone.health}")
+    #input("CLICK: ")
+    #pass
