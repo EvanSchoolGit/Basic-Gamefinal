@@ -1,3 +1,6 @@
+#WEEKEND'S CHECKLIST - INVENTORY SYSTEM, PATCH MAP, ENEMY SYSTEM, BOSS.
+
+
 ########################################################################
 # Title : RPG game
 # Class : Computer Science 30
