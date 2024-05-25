@@ -137,17 +137,18 @@ def intro():
 
 def movement(direction): 
   global x_loc, y_loc
-  if direction == "a" and x_loc > 0:
-    x_loc-= 1
-  elif direction == "d" and x_loc < 3:
-    x_loc+= 1
-  elif direction == "w" and y_loc > 0:
-    y_loc-= 1
-  elif direction == "s" and y_loc < 2:
-    y_loc+= 1
-  elif direction == ("X"):
-    print("Now quiting...")
-    quit()
+  if x_loc > 0 or y_loc > 0 or x_loc < 3 or y_loc < 2:
+    if direction == "a": #GOOD
+      x_loc-= 1
+    elif direction == "d":  #PROBLEM
+      x_loc+= 1
+    elif direction == "w":  #KINDA GOOD
+      y_loc-= 1
+    elif direction == "s":  #PROBLEM
+      y_loc+= 1
+    elif direction == ("X"):
+      print("Now quiting...")
+      quit()
 
 intro()
 while True:
