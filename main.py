@@ -21,6 +21,7 @@ guy = Protag(name = "You", health=10)
 enemyone = Enemyone(name="Unpaid Specialist", health=10)
 mapfile = 'map.txt'
 uifile = 'ui.txt'
+fightfile = 'fight.txt'
 
 rooms = {
     "First": {
@@ -173,10 +174,13 @@ def printmap():
 
       movement(choice)
       restrictions()
-      if x_loc == 2:
+      if x_loc == 4 and y_loc == 1:
+        print("BOSS FIGHT")
         break
 
 printmap()
+
+def printfight():
 
   #while True:
     #guy.attack(enemyone)
