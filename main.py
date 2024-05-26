@@ -175,18 +175,36 @@ def printmap():
       movement(choice)
       restrictions()
       if x_loc == 4 and y_loc == 1:
+        printfight()
         print("BOSS FIGHT")
         break
 
-printmap()
-
 def printfight():
+  while True:
+    with open(fightfile) as file:
+      print(file.read())
+      guy.attack(enemyone)
+      enemyone.attack(guy)
+      
+      print(f"Health of {guy.name}: {guy.health}")
+      print(f"Health of {enemyone.name}: {enemyone.health}")
+      input("CLICK: ")
+      pass
 
-  #while True:
-    #guy.attack(enemyone)
-    #enemyone.attack(guy)
-    
-    #print(f"Health of {guy.name}: {guy.health}")
-    #print(f"Health of {enemyone.name}: {enemyone.health}")
-    #input("CLICK: ")
-    #pass
+def printmap():
+  while True:
+      with open(mapfile) as file:
+        print(file.read())
+      print("COORDINATES: ",f"{x_loc}, {y_loc}")
+      print("")
+      with open(uifile) as file:
+        print(file.read())
+
+        choice = input("Choice: ")
+
+      movement(choice)
+      restrictions()
+      if x_loc == 4 and y_loc == 1:
+        printfight()
+        print("BOSS FIGHT")
+        break
