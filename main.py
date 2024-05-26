@@ -161,23 +161,6 @@ def restrictions():
   elif y_loc == -1:
     y_loc += 1
 intro()
-def printmap():
-  while True:
-      with open(mapfile) as file:
-        print(file.read())
-      print("COORDINATES: ",f"{x_loc}, {y_loc}")
-      print("")
-      with open(uifile) as file:
-        print(file.read())
-        
-        choice = input("Choice: ")
-
-      movement(choice)
-      restrictions()
-      if x_loc == 4 and y_loc == 1:
-        printfight()
-        print("BOSS FIGHT")
-        break
 
 def printfight():
   while True:
@@ -208,3 +191,4 @@ def printmap():
         printfight()
         print("BOSS FIGHT")
         break
+printmap()
