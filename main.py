@@ -162,22 +162,22 @@ def restrictions():
 intro()
 def printmap():
   while True:
-    try:
       with open(mapfile) as file:
         print(file.read())
       print("COORDINATES: ",f"{x_loc}, {y_loc}")
       print("")
       with open(uifile) as file:
         print(file.read())
+        
         choice = input("Choice: ")
-    except Exception as e:
-      printWAH
-  try:
-    movement(choice)
-    restrictions()
-  finally:
-    pass
-    
+
+      movement(choice)
+      restrictions()
+      if x_loc == 2:
+        break
+
+printmap()
+
   #while True:
     #guy.attack(enemyone)
     #enemyone.attack(guy)
