@@ -137,33 +137,44 @@ def intro():
 
 def movement(direction): 
   global x_loc, y_loc
-  if x_loc > 0 or y_loc > 0 or x_loc < 3 or y_loc < 2:
-    if direction == "a": #GOOD
-      x_loc-= 1
-    elif direction == "d":  #PROBLEM
-      x_loc+= 1
-    elif direction == "w":  #KINDA GOOD
-      y_loc-= 1
-    elif direction == "s":  #PROBLEM
-      y_loc+= 1
-    elif direction == ("X"):
-      print("Now quiting...")
-      quit()
+  if direction == "a": #GOOD
+    x_loc-= 1
+  elif direction == "d": #PROBLEM
+    x_loc+= 1
+  elif direction == "w": #KINDA GOOD
+    y_loc-= 1
+  elif direction == "s": #PROBLEM
+    y_loc+= 1
+  elif direction == ("X"):
+    print("Now quiting...")
+    quit()
 
+def restrictions():
+  global x_loc, y_loc
+  if x_loc == -1:
+    x_loc += 1
+  elif x_loc == 4 and y_loc == 0 or x_loc ==4 and y_loc == 2:
+    x_loc -= 1
+  elif x_loc == 4 and y_loc == 3 or x_loc == 0 and y_loc == 5:
+    y_loc -= 1
+  elif y_loc == -1:
+    y_loc += 1
 intro()
-while True:
-  try:
-    with open(mapfile) as file:
-      print(file.read())
-    print("COORDINATES: ",f"{x_loc}, {y_loc}")
-    print("")
-    with open(uifile) as file:
-      print(file.read())
-  finally:
-      choice = input("Choice: ")
-      pass
+def printmap():
+  while True:
+    try:
+      with open(mapfile) as file:
+        print(file.read())
+      print("COORDINATES: ",f"{x_loc}, {y_loc}")
+      print("")
+      with open(uifile) as file:
+        print(file.read())
+        choice = input("Choice: ")
+    except Exception as e:
+      printWAH
   try:
     movement(choice)
+    restrictions()
   finally:
     pass
     
