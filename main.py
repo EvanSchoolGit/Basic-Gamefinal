@@ -27,23 +27,23 @@ fightfile = 'fight.txt'
 rooms = {
     "First": {
       "name" : "ROOM: Strange Room",
-      "description" : """There is a scent of blood. Proceed with caution"""},
+      "description" : """'There is a scent of blood. Proceed with caution'"""},
 
     "Second": {
-      "name" : "ROOM: Second",
-      "description" : """There is a scent of sweat. Proceed with caution"""},
+      "name" : "ROOM: Strange Room",
+      "description" : """'There is a scent of sweat. Proceed with caution'"""},
 
     "Last": {
-      "name" : "ROOM: Last",
-      "description" : """There is a scent of tears. Proceed with caution"""},
+      "name" : "ROOM: Strange Room",
+      "description" : """'There is a scent of tears. Proceed with caution'"""},
 
     "Gag": {
-      "name" : "ROOM: gag",
-      "description" : "Get GAGGED idiot!"},
+      "name" : "ROOM: The Dungeon",
+      "description" : "'The Cobblestone flooring does not match with the office'"},
 
     "FINAL": {
-      "name" : "ROOM: Final",
-      "description" : "Get FINALED idiot!"},
+      "name" : "ROOM: Final Stage",
+      "description" : "'If I go past this area, I should be prepared...'"},
 
     "Cubicles": {
       "name" : "ROOM: Cubicles",
@@ -235,6 +235,7 @@ def printmap():
         print(file.read())
       print("COORDINATES: ",f"{x_loc}, {y_loc}")
       print("")
+      roomdesc()
       with open(uifile) as file:
         print(file.read())
 
