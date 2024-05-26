@@ -26,16 +26,16 @@ fightfile = 'fight.txt'
 
 rooms = {
     "First": {
-      "name" : "ROOM: first",
-      "description" : """Ooooooo mama mia, I am the first riddel master"""},
+      "name" : "ROOM: Strange Room",
+      "description" : """There is a scent of blood. Proceed with caution"""},
 
     "Second": {
       "name" : "ROOM: Second",
-      "description" : """Ooooooo mama mia, I am the second riddel master"""},
+      "description" : """There is a scent of sweat. Proceed with caution"""},
 
     "Last": {
       "name" : "ROOM: Last",
-      "description" : """Ooooooo mama mia, I am the Last riddel master"""},
+      "description" : """There is a scent of tears. Proceed with caution"""},
 
     "Gag": {
       "name" : "ROOM: gag",
@@ -59,7 +59,15 @@ rooms = {
 
     "Rec Room": {
       "name" : "ROOM: Rec Room",
-      "description" : "'No darts, no pool cues... the perfect rec room'"}
+      "description" : "'No darts, no pool cues... the pinnacle of relaxation'"},
+
+    "IT Room": {
+      "name" : "ROOM: IT Room",
+      "description" : "[PRESS Q FOR TUTORIAL] 'Is there anything I need to know?'"},
+  
+    "Copy Room": {
+      "name" : "ROOM: Copy Room",
+      "description" : "'The printers here always smelled cold'"}
 }
 
 def intro():
@@ -136,42 +144,51 @@ def intro():
   input("You wake up to your office: ")
   input("a real go-getter?: ")
 
-if x_loc == 1 and y_loc == 0:
-  print(rooms["First"]["name"])
-  print("")
-  print(rooms["First"]["description"])
-elif x_loc == 0 and y_loc == 1:
-  print(rooms["Second"]["name"])
-  print("")
-  print(rooms["Second"]["description"])
-elif x_loc == 2 and y_loc == 2:
-  print(rooms["Last"]["name"])
-  print("")
-  print(rooms["Last"]["description"])
-elif x_loc == 3 and y_loc == 0:
-  print(rooms["Gag"]["name"])
-  print("")
-  print(rooms["Gag"]["description"])
-elif x_loc == 3 and y_loc == 1:
-  print(rooms["FINAL"]["name"])
-  print("")
-  print(rooms["FINAL"]["description"])
-elif x_loc == 0 and y_loc == 0:
-  print(rooms["Cubicles"]["name"])
-  print("")
-  print(rooms["Cubicles"]["description"]) 
-elif x_loc == 0 and y_loc == 2 or x_loc == 2 and y_loc == 1:
-  print(rooms["Meeting Room"]["name"])
-  print("")
-  print(rooms["Meeting Room"]["description"])
-elif x_loc == 1 and y_loc == 2 or x_loc == 2 and y_loc == 0:
-  print(rooms["Bathrooms"]["name"])
-  print("")
-  print(rooms["Bathrooms"]["description"])
-elif x_loc == 1 and y_loc == 1 or x_loc == 3 and y_loc == 2:
-  print(rooms["Rec Room"]["name"])
-  print("")
-  print(rooms["Rec Room"]["description"])
+def roomdesc():
+  if x_loc == 1 and y_loc == 0:
+    print(rooms["First"]["name"])
+    print("")
+    print(rooms["First"]["description"])
+  elif x_loc == 0 and y_loc == 1:
+    print(rooms["Second"]["name"])
+    print("")
+    print(rooms["Second"]["description"])
+  elif x_loc == 2 and y_loc == 2:
+    print(rooms["Last"]["name"])
+    print("")
+    print(rooms["Last"]["description"])
+  elif x_loc == 3 and y_loc == 0:
+    print(rooms["Gag"]["name"])
+    print("")
+    print(rooms["Gag"]["description"])
+  elif x_loc == 3 and y_loc == 1:
+    print(rooms["FINAL"]["name"])
+    print("")
+    print(rooms["FINAL"]["description"])
+  elif x_loc == 0 and y_loc == 0 or x_loc == 0 and y_loc == 4:
+    print(rooms["Cubicles"]["name"])
+    print("")
+    print(rooms["Cubicles"]["description"]) 
+  elif x_loc == 0 and y_loc == 2 or x_loc == 2 and y_loc == 1:
+    print(rooms["Meeting Room"]["name"])
+    print("")
+    print(rooms["Meeting Room"]["description"])
+  elif x_loc == 1 and y_loc == 2 or x_loc == 2 and y_loc == 0:
+    print(rooms["Bathrooms"]["name"])
+    print("")
+    print(rooms["Bathrooms"]["description"])
+  elif x_loc == 1 and y_loc == 1 or x_loc == 3 and y_loc == 2:
+    print(rooms["Rec Room"]["name"])
+    print("")
+    print(rooms["Rec Room"]["description"])
+  elif x_loc == 0 and y_loc == 3:
+    print(rooms["IT Room"]["name"])
+    print("")
+    print(rooms["IT Room"]["description"])
+  elif x_loc == 1 and y_loc == 3:
+    print(rooms["Copy Room"]["name"])
+    print("")
+    print(rooms["Copy Room"]["description"])
 
 
 def movement(direction): 
