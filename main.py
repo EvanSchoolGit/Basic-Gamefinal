@@ -19,6 +19,7 @@ y_loc=4
 
 guy = Protag(name = "You", health=10)
 enemyone = Enemyone(name="Unpaid Specialist", health=10)
+
 mapfile = 'map.txt'
 uifile = 'ui.txt'
 fightfile = 'fight.txt'
@@ -134,6 +135,43 @@ def intro():
   print("")
   input("You wake up to your office: ")
   input("a real go-getter?: ")
+
+if x_loc == 1 and y_loc == 0:
+  print(rooms["First"]["name"])
+  print("")
+  print(rooms["First"]["description"])
+elif x_loc == 0 and y_loc == 1:
+  print(rooms["Second"]["name"])
+  print("")
+  print(rooms["Second"]["description"])
+elif x_loc == 2 and y_loc == 2:
+  print(rooms["Last"]["name"])
+  print("")
+  print(rooms["Last"]["description"])
+elif x_loc == 3 and y_loc == 0:
+  print(rooms["Gag"]["name"])
+  print("")
+  print(rooms["Gag"]["description"])
+elif x_loc == 3 and y_loc == 1:
+  print(rooms["FINAL"]["name"])
+  print("")
+  print(rooms["FINAL"]["description"])
+elif x_loc == 0 and y_loc == 0:
+  print(rooms["Cubicles"]["name"])
+  print("")
+  print(rooms["Cubicles"]["description"]) 
+elif x_loc == 0 and y_loc == 2 or x_loc == 2 and y_loc == 1:
+  print(rooms["Meeting Room"]["name"])
+  print("")
+  print(rooms["Meeting Room"]["description"])
+elif x_loc == 1 and y_loc == 2 or x_loc == 2 and y_loc == 0:
+  print(rooms["Bathrooms"]["name"])
+  print("")
+  print(rooms["Bathrooms"]["description"])
+elif x_loc == 1 and y_loc == 1 or x_loc == 3 and y_loc == 2:
+  print(rooms["Rec Room"]["name"])
+  print("")
+  print(rooms["Rec Room"]["description"])
 
 
 def movement(direction): 
