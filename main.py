@@ -219,7 +219,7 @@ def movement(direction):
         else:
           pass
         print("")
-    elif x_loc == 0 and y_loc ==1:
+    elif x_loc == 0 and y_loc == 1:
       input("'You stumble across a man with a repulsive appearance': ")
       input("'He looks difficult to kill': ")
       while True:
@@ -231,19 +231,18 @@ def movement(direction):
           break
         else:
           pass
-    elif x_loc == 0 and y_loc == 1: #Second
-      input("Dude you can't just be stumbling into my house like this: ")
-      input("Don't you know how rude that is?: ")
-      input("Take this and get out my sight: ")
-      input("*You obtained, $26.85 ")
-      print("")
-    elif x_loc == 2 and y_loc == 2: #Third
-      input("Psst... HEY!: ")
-      input("Look...could you do me a solid?: ")
-      input("I can't explain all of the details, but you can assume what you need to do: ")
-      input("Have this: ")
-      input("*You obtained, Astra 680 Magnum Revolver ")
-      print("")
+    elif x_loc == 2 and y_loc == 2:
+      input("'You stumble across a man with a brutish appearance': ")
+      input("'He looks very difficult to kill': ")
+      while True:
+        fightchoice = input("[1] FIGHT      [2] LEAVE : ")
+        if fightchoice == "1":
+          printfight()
+          break
+        elif fightchoice == "2":
+          break
+        else:
+          pass
     elif x_loc == 3 and y_loc == 0: #Gag
       print("'I hate you and never come back'")
     else:
@@ -292,6 +291,7 @@ def printfight():
             quit()
         if enemyone.health <= 0:
           break
+
   if x_loc == 0 and y_loc == 1:
     while True:
       with open(fightfile) as file:
@@ -307,7 +307,50 @@ def printfight():
           break
         else:
           pass
-        if enemyone.health <= 0:
+        if enemytwo.health <= 0:
+          break
+        if guy.health <= 0:
+          with open(gameoverfile) as file:
+            print(file.read())
+            quit()
+
+  if x_loc == 2 and y_loc == 2:
+    while True:
+      with open(fightfile) as file:
+        print(file.read())
+        guy.attack(enemythree)
+        enemythree.attack(guy)
+        print(f"Health of {guy.name}: {guy.health}")
+        print(f"Health of {enemythree.name}: {enemythree.health}")
+        fightchoice = input("[1] ATTACK     [2] LEAVE: ")
+        if fightchoice == '1':
+          pass
+        elif fightchoice == '2':
+          break
+        else:
+          pass
+        if enemythree.health <= 0:
+          break
+        if guy.health <= 0:
+          with open(gameoverfile) as file:
+            print(file.read())
+            quit()
+  if x_loc == 4 and y_loc == 1:
+   while True:
+      with open(fightfile) as file:
+        print(file.read())
+        guy.attack(hrboss)
+        hrboss.attack(guy)
+        print(f"Health of {guy.name}: {guy.health}")
+        print(f"Health of {hrboss.name}: {hrboss.health}")
+        fightchoice = input("[1] ATTACK     [2] LEAVE: ")
+        if fightchoice == '1':
+          pass
+        elif fightchoice == '2':
+          break
+        else:
+          pass
+        if hrboss.health <= 0:
           break
         if guy.health <= 0:
           with open(gameoverfile) as file:
