@@ -12,7 +12,7 @@ zippy = Items(name="Zippy HE55",
               damage=2,
               description="a weak pellet shooter, that has a chance of jamming easily")
 gakle = Items(name = "g-AKle 5959",
-              damage=10,
+              damage=15,
               description="a long hunting rifle with no apparent faults")
 fists = Items(name= "Fists",
               damage=1,

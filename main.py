@@ -1,5 +1,5 @@
 #WEEKEND'S CHECKLIST - INVENTORY SYSTEM, PATCH MAP, ENEMY SYSTEM, BOSS.
-
+# PROBLEM ENEMYS DONT HAVE WEAPONS
 
 ########################################################################
 # Title : RPG game
@@ -13,16 +13,16 @@ Fill me out!!!!!
 """
 ########################################################################
 from charactar import Enemytwo, Hrboss, Protag, Enemyone, Enemythree
-from items import zippy
+from items import zippy, gakle, astra_revolver
 
 x_loc=0
 y_loc=4
 
 guy = Protag(name = "You", health=20)
 enemyone = Enemyone(name="Unpaid Specialist", health=10)
-enemytwo = Enemytwo(name = "Custodial Enigneer", health=20, weapon=zippy)
-enemythree = Enemythree(name = "Executive Administator", health=30)
-hrboss = Hrboss(name = "Human Resources", health=50)
+enemytwo = Enemytwo(name = "Custodial Enigneer", health=18, weapon=zippy)
+enemythree = Enemythree(name = "Executive Administator", health=30, weapon=zippy)
+hrboss = Hrboss(name = "Human Resources", health=45, weapon=astra_revolver)
 
 mapfile = 'map.txt'
 uifile = 'ui.txt'

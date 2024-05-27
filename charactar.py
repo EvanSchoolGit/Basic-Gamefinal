@@ -24,11 +24,14 @@ class Enemyone(Character):
 class Enemytwo(Character):
   def __init__(self, name: str, health: int, weapon):
     super().__init__(name=name, health=health)
+    self.Items = weapon
 
 class Enemythree(Character):
-  def __init__(self, name: str, health: int):
+  def __init__(self, name: str, health: int, weapon):
     super().__init__(name=name, health=health)
+    self.Items = weapon
     
 class Hrboss(Character):
-  def __init__(self, name: str, health: int):
+  def __init__(self, name: str, health: int, weapon):
     super().__init__(name=name, health=health)
+    self.Items = weapon
