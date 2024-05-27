@@ -26,6 +26,7 @@ hrboss = Hrboss(name = "Human Resources", health=50)
 mapfile = 'map.txt'
 uifile = 'ui.txt'
 fightfile = 'fight.txt'
+gameoverfile = 'gameover.txt'
 
 rooms = {
     "First": {
@@ -259,11 +260,17 @@ def printfight():
       print(file.read())
       guy.attack(enemyone)
       enemyone.attack(guy)
-      
       print(f"Health of {guy.name}: {guy.health}")
       print(f"Health of {enemyone.name}: {enemyone.health}")
-      input("CLICK: ")
-      pass
+      fightchoice = input("[1] ATTACK     [2] LEAVE: ")
+      if fightchoice == '1':
+        pass
+      elif fightchoice == '2':
+        break
+      else:
+        pass
+      if enemyone.health <= '0':
+        break
 
 def printmap():
   while True:
