@@ -19,7 +19,7 @@ y_loc=4
 
 guy = Protag(name = "You", health=20)
 enemyone = Enemyone(name="Unpaid Specialist", health=10)
-enemytwo = Enemytwo(name = "Custodial Enigneer", health=20)
+enemytwo = Enemytwo(name = "Custodial Enigneer", health=22)
 enemythree = Enemythree(name = "Executive Administator", health=30)
 hrboss = Hrboss(name = "Human Resources", health=50)
 
@@ -219,6 +219,18 @@ def movement(direction):
         else:
           pass
         print("")
+    elif x_loc == 0 and y_loc ==1:
+      input("'You stumble across a man with a repulsive appearance': ")
+      input("'He looks difficult to kill': ")
+      while True:
+        fightchoice = input("[1] FIGHT      [2] LEAVE : ")
+        if fightchoice == "1":
+          printfight()
+          break
+        elif fightchoice == "2":
+          break
+        else:
+          pass
     elif x_loc == 0 and y_loc == 1: #Second
       input("Dude you can't just be stumbling into my house like this: ")
       input("Don't you know how rude that is?: ")
@@ -255,39 +267,69 @@ intro()
 
 def printfight():
   global x_loc, y_loc
-  while True:
-    with open(fightfile) as file:
+  if guy.health <= 0:
+    with open(gameoverfile) as file:
       print(file.read())
-      guy.attack(enemyone)
-      enemyone.attack(guy)
-      print(f"Health of {guy.name}: {guy.health}")
-      print(f"Health of {enemyone.name}: {enemyone.health}")
-      fightchoice = input("[1] ATTACK     [2] LEAVE: ")
-      if fightchoice == '1':
-        pass
-      elif fightchoice == '2':
-        break
-      else:
-        pass
-      if enemyone.health <= '0':
-        break
+      quit()
+  if x_loc == 1 and y_loc == 2:
+    while True:
+      with open(fightfile) as file:
+        print(file.read())
+        guy.attack(enemyone)
+        enemyone.attack(guy)
+        print(f"Health of {guy.name}: {guy.health}")
+        print(f"Health of {enemyone.name}: {enemyone.health}")
+        fightchoice = input("[1] ATTACK     [2] LEAVE: ")
+        if fightchoice == '1':
+          pass
+        elif fightchoice == '2':
+          break
+        else:
+          pass
+        if guy.health <= 0:
+          with open(gameoverfile) as file:
+            print(file.read())
+            quit()
+        if enemyone.health <= 0:
+          break
+  if x_loc == 0 and y_loc == 1:
+    while True:
+      with open(fightfile) as file:
+        print(file.read())
+        guy.attack(enemytwo)
+        enemytwo.attack(guy)
+        print(f"Health of {guy.name}: {guy.health}")
+        print(f"Health of {enemytwo.name}: {enemytwo.health}")
+        fightchoice = input("[1] ATTACK     [2] LEAVE: ")
+        if fightchoice == '1':
+          pass
+        elif fightchoice == '2':
+          break
+        else:
+          pass
+        if enemyone.health <= 0:
+          break
+        if guy.health <= 0:
+          with open(gameoverfile) as file:
+            print(file.read())
+            quit()
 
 def printmap():
   while True:
-      with open(mapfile) as file:
-        print(file.read())
-      print("COORDINATES: ",f"{x_loc}, {y_loc}")
-      print("")
-      roomdesc()
-      with open(uifile) as file:
-        print(file.read())
+    with open(mapfile) as file:
+      print(file.read())
+    print("COORDINATES: ",f"{x_loc}, {y_loc}")
+    print("")
+    roomdesc()
+    with open(uifile) as file:
+      print(file.read())
 
-        choice = input("Choice: ")
+      choice = input("Choice: ")
 
-      movement(choice)
-      restrictions()
-      if x_loc == 4 and y_loc == 1:
-        printfight()
-        print("BOSS FIGHT")
-        break
+    movement(choice)
+    restrictions()
+    if x_loc == 4 and y_loc == 1:
+      printfight()
+      print("BOSS FIGHT")
+      break
 printmap()
