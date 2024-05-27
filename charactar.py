@@ -14,8 +14,9 @@ class Character():
           f"{self.Items.name}")
 
 class Protag(Character):
-  def __init__(self, name: str, health: int):
+  def __init__(self, name: str, health: int, weapon: str):
     super().__init__(name=name, health=health)
+    self.Items = weapon
 
 class Enemyone(Character):
   def __init__(self, name: str, health: int):

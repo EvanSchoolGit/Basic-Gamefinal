@@ -1,5 +1,4 @@
-#WEEKEND'S CHECKLIST - INVENTORY SYSTEM, PATCH MAP, ENEMY SYSTEM, BOSS.
-# PROBLEM ENEMYS DONT HAVE WEAPONS
+#WEEKEND'S CHECKLIST - INVENTORY SYSTEM
 
 ########################################################################
 # Title : RPG game
@@ -13,12 +12,12 @@ Fill me out!!!!!
 """
 ########################################################################
 from charactar import Enemytwo, Hrboss, Protag, Enemyone, Enemythree
-from items import zippy, gakle, astra_revolver
+from items import zippy, gakle, astra_revolver, fists
 
 x_loc=0
 y_loc=4
 
-guy = Protag(name = "You", health=20)
+guy = Protag(name = "You", health=20, weapon=fists)
 enemyone = Enemyone(name="Unpaid Specialist", health=10)
 enemytwo = Enemytwo(name = "Custodial Enigneer", health=18, weapon=zippy)
 enemythree = Enemythree(name = "Executive Administator", health=30, weapon=zippy)
@@ -28,6 +27,7 @@ mapfile = 'map.txt'
 uifile = 'ui.txt'
 fightfile = 'fight.txt'
 gameoverfile = 'gameover.txt'
+promotedfile = 'promoted.txt'
 
 rooms = {
     "First": {
@@ -195,6 +195,14 @@ def roomdesc():
     print("")
     print(rooms["Copy Room"]["description"])
 
+def end():
+  input("'You did it'")
+  input("'Im so proud of you'")
+  input("'You truly are a Go-Getter'")
+  input("'Enjoy your promotion!'")
+  with open(promotedfile) as file:
+    print(file.read())
+    quit()
 
 def movement(direction): 
   global x_loc, y_loc
@@ -251,15 +259,17 @@ def movement(direction):
   elif direction == ("X"):
     print("Now quiting...")
     quit()
+  elif direction == ("e"):
+    print(f"You carry a {guy.name}:")
 
 
 def restrictions():
   global x_loc, y_loc
-  if x_loc == -1:
-    x_loc += 1
-  elif x_loc == 4 and y_loc == 0 or x_loc ==4 and y_loc == 2:
-    x_loc -= 1
-  elif x_loc == 4 and y_loc == 3 or x_loc == 0 and y_loc == 5:
+  if x_loc==-1:
+    x_loc+=1
+  elif x_loc==4 and y_loc==0 or x_loc==4 and y_loc==2 or x_loc==1 and y_loc==4:
+    x_loc-=1
+  elif x_loc==4 and y_loc==3 or x_loc==0 and y_loc==5 or x_loc==2 and y_loc==3:
     y_loc -= 1
   elif y_loc == -1:
     y_loc += 1
@@ -271,7 +281,7 @@ def printfight():
     with open(gameoverfile) as file:
       print(file.read())
       quit()
-  if x_loc == 1 and y_loc == 2:
+  if x_loc == 1 and y_loc == 0:
     while True:
       with open(fightfile) as file:
         print(file.read())
@@ -280,17 +290,18 @@ def printfight():
         print(f"Health of {guy.name}: {guy.health}")
         print(f"Health of {enemyone.name}: {enemyone.health}")
         fightchoice = input("[1] ATTACK     [2] LEAVE: ")
-        if fightchoice == '1':
+        if fightchoice == '1':  
           pass
         elif fightchoice == '2':
           break
         else:
           pass
-        if guy.health <= 0:
+        if guy.health == 0:
           with open(gameoverfile) as file:
             print(file.read())
             quit()
-        if enemyone.health <= 0:
+        if enemyone.health == 0:
+          guy.health = 20
           break
 
   if x_loc == 0 and y_loc == 1:
@@ -308,9 +319,10 @@ def printfight():
           break
         else:
           pass
-        if enemytwo.health <= 0:
+        if enemytwo.health == 0:
+          guy.health = 20
           break
-        if guy.health <= 0:
+        if guy.health == 0:
           with open(gameoverfile) as file:
             print(file.read())
             quit()
@@ -331,6 +343,10 @@ def printfight():
         else:
           pass
         if enemythree.health <= 0:
+          input("'It seems that something has dropped after the battle...': ")
+          input("'You've obtained a Gakle!")
+          guy.Items = gakle
+          guy.health = 20
           break
         if guy.health <= 0:
           with open(gameoverfile) as file:
@@ -352,6 +368,7 @@ def printfight():
         else:
           pass
         if hrboss.health <= 0:
+          end()
           break
         if guy.health <= 0:
           with open(gameoverfile) as file:
