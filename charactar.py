@@ -20,6 +20,14 @@ class Protag(Character):
 class Enemyone(Character):
   def __init__(self, name: str, health: int):
     super().__init__(name=name, health=health)
+
+class Enemytwo(Character):
+  def __init__(self, name: str, health: int):
+    super().__init__(name=name, health=health)
+
+class Enemythree(Character):
+  def __init__(self, name: str, health: int):
+    super().__init__(name=name, health=health)
     
 class Hrboss(Character):
   def __init__(self, name: str, health: int):

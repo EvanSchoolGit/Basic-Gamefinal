@@ -12,13 +12,15 @@
 Fill me out!!!!!
 """
 ########################################################################
-from charactar import Protag, Enemyone 
+from charactar import Enemytwo, Protag, Enemyone, Enemythree
 
 x_loc=0
 y_loc=4
 
-guy = Protag(name = "You", health=10)
+guy = Protag(name = "You", health=20)
 enemyone = Enemyone(name="Unpaid Specialist", health=10)
+enemytwo = Enemytwo(name = "Custodial Enigneer", health=20)
+enemythree = Enemythree(name = "Executive Administator", health=30)
 
 mapfile = 'map.txt'
 uifile = 'ui.txt'
@@ -203,11 +205,18 @@ def movement(direction):
     y_loc+= 1
   elif direction =="q":
     if x_loc == 1 and y_loc == 0: #First
-      input("Well, Well, Well, It seems you have stumbled onto my wonderful obode: ")
-      input("This item will help you quite a lot, with the final battle: ")
-      input("Good Luck Wanderer: ")
-      input("*You obtained, A Crushed Up Can of Diet Coke: ")
-      print("")
+      input("'You stumble across a man with a gaunt appearance': ")
+      input("'He looks very easy to kill':  ")
+      while True:
+        fightchoice = input("[1] FIGHT      [2] LEAVE : ")
+        if fightchoice == "1":
+          printfight()
+          break
+        elif fightchoice == "2":
+          break
+        else:
+          pass
+        print("")
     elif x_loc == 0 and y_loc == 1: #Second
       input("Dude you can't just be stumbling into my house like this: ")
       input("Don't you know how rude that is?: ")
@@ -229,6 +238,7 @@ def movement(direction):
     print("Now quiting...")
     quit()
 
+
 def restrictions():
   global x_loc, y_loc
   if x_loc == -1:
@@ -242,6 +252,7 @@ def restrictions():
 intro()
 
 def printfight():
+  global x_loc, y_loc
   while True:
     with open(fightfile) as file:
       print(file.read())
