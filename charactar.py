@@ -13,6 +13,11 @@ class Character():
     target.health = max(target.health, 0)
     print(f"{self.name} dealt {self.Items.damage} damage towards {target.name} with "
           f"{self.Items.name}")
+  def descrbing(self):
+    print(f"NAME: {self.Items.name}")
+    print(f"DAMAGE: {self.Items.damage}")
+    print(f"DESCRIPTION: {self.Items.description}")
+    input("COUNTINUE: ")
 
 class Protag(Character):
   def __init__(self, name: str, health: int, weapon, weapondesc: str):

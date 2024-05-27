@@ -10,10 +10,10 @@
 """ 
 Fill me out!!!!!
 """
-########################################################################
+###########################-IMPORTS-############################################
 from charactar import Enemytwo, Hrboss, Protag, Enemyone, Enemythree
 from items import zippy, gakle, astra_revolver, fists
-
+############################-SETUP-#############################################
 x_loc=0
 y_loc=4
 
@@ -74,6 +74,7 @@ rooms = {
       "name" : "ROOM: Copy Room",
       "description" : "'The printers here always smelled cold'"}
 }
+##############################-MAIN####################################################
 
 def intro():
   input("'Yeah': ")
@@ -302,16 +303,15 @@ def movement(direction):
       input("You notice something on the ground...: ")
       input("*YOU GAIN AN ASTRA REVOLVER: ")
       guy.Items = astra_revolver
+    elif x_loc == 3 and y_loc == 1:
+      input("I should only go past here if I have done everything here...: ")
     else:
       input("Theres nothing here of interest... ")
   elif direction == ("X"):
     print("Now quiting...")
     quit()
   elif direction == ("e"):
-    print(f"You carry {guy.itemsdesc}")
-    print(f"{guy.itemsdesc.description}")
-    
-
+    guy.descrbing()
 
 def restrictions():
   global x_loc, y_loc
@@ -323,6 +323,7 @@ def restrictions():
     y_loc -= 1
   elif y_loc == -1:
     y_loc += 1
+
 intro()
 
 def printfight():
@@ -443,4 +444,7 @@ def printmap():
       printfight()
       print("BOSS FIGHT")
       break
+
 printmap()
+
+###########################################################################################
