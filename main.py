@@ -201,6 +201,30 @@ def movement(direction):
     y_loc-= 1
   elif direction == "s": #PROBLEM
     y_loc+= 1
+  elif direction =="q":
+    if x_loc == 1 and y_loc == 0: #First
+      input("Well, Well, Well, It seems you have stumbled onto my wonderful obode: ")
+      input("This item will help you quite a lot, with the final battle: ")
+      input("Good Luck Wanderer: ")
+      input("*You obtained, A Crushed Up Can of Diet Coke: ")
+      print("")
+    elif x_loc == 0 and y_loc == 1: #Second
+      input("Dude you can't just be stumbling into my house like this: ")
+      input("Don't you know how rude that is?: ")
+      input("Take this and get out my sight: ")
+      input("*You obtained, $26.85 ")
+      print("")
+    elif x_loc == 2 and y_loc == 2: #Third
+      input("Psst... HEY!: ")
+      input("Look...could you do me a solid?: ")
+      input("I can't explain all of the details, but you can assume what you need to do: ")
+      input("Have this: ")
+      input("*You obtained, Astra 680 Magnum Revolver ")
+      print("")
+    elif x_loc == 3 and y_loc == 0: #Gag
+      print("'I hate you and never come back'")
+    else:
+      input("Theres nothing here of interest... ")
   elif direction == ("X"):
     print("Now quiting...")
     quit()
