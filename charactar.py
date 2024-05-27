@@ -4,8 +4,9 @@ class Character():
   def __init__(self, name: str, health: int):
     self.name = name
     self.health = health
-
+    
     self.Items = fists
+    self.itemsdesc = fists
     
   def attack(self, target):
     target.health -= self.Items.damage
@@ -14,9 +15,10 @@ class Character():
           f"{self.Items.name}")
 
 class Protag(Character):
-  def __init__(self, name: str, health: int, weapon: str):
+  def __init__(self, name: str, health: int, weapon, weapondesc: str):
     super().__init__(name=name, health=health)
     self.Items = weapon
+    self.itemsdesc = weapondesc
 
 class Enemyone(Character):
   def __init__(self, name: str, health: int):

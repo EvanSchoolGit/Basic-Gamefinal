@@ -17,7 +17,7 @@ from items import zippy, gakle, astra_revolver, fists
 x_loc=0
 y_loc=4
 
-guy = Protag(name = "You", health=20, weapon=fists)
+guy = Protag(name = "You", health=20, weapon=fists, weapondesc="fists")
 enemyone = Enemyone(name="Unpaid Specialist", health=10)
 enemytwo = Enemytwo(name = "Custodial Enigneer", health=18, weapon=zippy)
 enemythree = Enemythree(name = "Executive Administator", health=30, weapon=zippy)
@@ -252,15 +252,65 @@ def movement(direction):
           break
         else:
           pass
-    elif x_loc == 3 and y_loc == 0: #Gag
-      print("'I hate you and never come back'")
+    elif x_loc == 0 and y_loc == 3:
+      input("'HELLO FELLOW EMPLOYEE': ")
+      print("")
+      print("'PLEASE EXTERMINATE ALL OF THOSE UGGOS IN THEIR OFFICES'")
+      input("[Pressing q within Strange Rooms]: ")
+      print("")
+      input("'SOME ARE STRONGER THAN OTHERS SO I RECCOMEND USING COMPANY RESOURCES': ")
+      print("")
+      print("'THESE CAN BE FOUND WITHIN THE BUILDING'")
+      input("[Press q in some rooms can give you items or bonuses")
+      print("")
+      input("'ONCE YOU'VE FINISHED YOUR TASK REPORT TO HR IMMEDIATELY': ")
+      print("")
+      input("'THANK YOU FOR COOPERATING'")
+    
+    elif x_loc == 0 and y_loc == 0 and guy.Items == fists:
+      input("'You begin rummaging throughout the cubicles':  ")
+      input("'You found a Zippy!'")
+      guy.Items = zippy
+
+    elif x_loc == 0 and y_loc == 2 or x_loc == 1 and y_loc == 3:
+      input("'PSST': ")
+      input("'Yo... could you help me real quick...': ")
+      input("'I lost my weapon in the Cubicles again...': ")
+      input("'Could you get it for me?': ")
+      input("'It's at (0,0)': ")
+      input("'WHAT ARE YOU STANDING FOR! GO GET IT': ")
+
+    elif x_loc == 2 and y_loc == 1 or x_loc == 1 and y_loc == 1:
+      input("A Green and Stout individual waddles up to you: ")
+      input("He is wearing fake glasses with fake a nose...: ")
+      input("'HELLO WEALTHY MAN': ")
+      input("'I've heard you were going through the QUEST and ADVENTURE': ")
+      input("'As a fellow employee, I shall give RUMORS and GOSSIP': ")
+      input("'I heard that if you have a Zippy with you, you can make millions': ")
+      input("'THEYRE GIVING OUT GOLD, EMPLOYEE': ")
+      input("'All you need to do is proceed to THE DUNGEON': ")
+      input("'GOOD LUCK EMPLOYEE': ")
+      input("He waddles away...: ")
+
+    elif x_loc == 3 and y_loc == 0 and guy.Items == zippy:
+      input("A Green and Stout individual waddles up to you: ")
+      input("'HELLO WEALTHY MAN': ")
+      input("He punches you in the gut")
+      input("'GOODBYE EMPLOYEE': ")
+      input("'He ran away...': ")
+      input("*YOU LOST ZIPPY")
+      input("You notice something on the ground...: ")
+      input("*YOU GAIN AN ASTRA REVOLVER: ")
+      guy.Items = astra_revolver
     else:
       input("Theres nothing here of interest... ")
   elif direction == ("X"):
     print("Now quiting...")
     quit()
   elif direction == ("e"):
-    print(f"You carry a {guy.name}:")
+    print(f"You carry {guy.itemsdesc}")
+    print(f"{guy.itemsdesc.description}")
+    
 
 
 def restrictions():
