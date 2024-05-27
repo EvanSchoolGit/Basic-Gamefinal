@@ -12,7 +12,7 @@
 Fill me out!!!!!
 """
 ########################################################################
-from charactar import Enemytwo, Protag, Enemyone, Enemythree
+from charactar import Enemytwo, Hrboss, Protag, Enemyone, Enemythree
 
 x_loc=0
 y_loc=4
@@ -21,6 +21,7 @@ guy = Protag(name = "You", health=20)
 enemyone = Enemyone(name="Unpaid Specialist", health=10)
 enemytwo = Enemytwo(name = "Custodial Enigneer", health=20)
 enemythree = Enemythree(name = "Executive Administator", health=30)
+hrboss = Hrboss(name = "Human Resources", health=50)
 
 mapfile = 'map.txt'
 uifile = 'ui.txt'
