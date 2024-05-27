@@ -22,7 +22,7 @@ class Enemyone(Character):
     super().__init__(name=name, health=health)
 
 class Enemytwo(Character):
-  def __init__(self, name: str, health: int):
+  def __init__(self, name: str, health: int, weapon):
     super().__init__(name=name, health=health)
 
 class Enemythree(Character):
